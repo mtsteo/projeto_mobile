@@ -1,23 +1,7 @@
 
-import { StyleSheet} from 'react-native';
-
-
-export default Styles = StyleSheet.create({
-    center: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    colorDefaut1:{
-      color:'#00BF63'
-    },
-    colorDefaut2:{
-      color:'#FFDE59'
-    },
-    fontColor:{
-      color:'white'
-    },
-    backgroundColor:{
-      backgroundColor:'#F4EFEF'
-    }
-  });
+export default colors = {
+  colorGreen: "#00BF63",
+  colorOrange: "#FFDE59",
+  ColorOffWhite: "#FAF9F6",
+  coloWhite:'white'
+}
