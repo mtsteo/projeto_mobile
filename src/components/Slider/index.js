@@ -1,48 +1,75 @@
 import React from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
-import Styles from '../../Styles/Styles';
 import Profile from '../Profile';
+import Data from '../../Data'
+import Styles from '../../Styles/Styles';
 
 
 
 
 function Slider() {
     const width = Dimensions.get('window').width;
-    const height = Dimensions.get('window').height;
+
+    const profiles = Data.map(profile => {
+        return (
+            <Profile
+                imgUrl={profile.photoUrl}
+                nomeDocente={profile.nomeDocente}
+                didatica={profile.didatica}
+                metodologia={profile.metodologia}
+                comprometimento={profile.comprometimento}
+            />
+
+        )
+    })
 
     return (
         <View style={styles.container}>
+            <View style={styles.melhoresAval}>
+                <Text style={styles.melhoresAvalTitle}>Melhores Avaliados</Text>
+                <Text>Ver todos</Text>
+            </View>
             <Carousel
-            
                 overscrollEnabled
                 loop
                 mode='parallax'
                 width={width}
-                height={height}
+                height={width + 60}
                 autoPlay={true}
-                data={[...new Array(6).keys()]}
+                data={profiles}
                 scrollAnimationDuration={1000}
-                renderItem={({ }) => (
-                    <View
-                        style={{
-                            flex: 1,
-                            justifyContent: 'center',
-                        }}
+                renderItem={({ item }) => (
+                    <View style={{
+                        flex: 1,
+                        justifyContent: 'center',
+                    }}
                     >
-                        <Profile />
+                        {item}
                     </View>
-                )}
+                )
+                }
             />
-        </View>
+        </View >
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         justifyContent: 'center',
+    },
+    melhoresAval: {
+        flexDirection: 'row',
+        justifyContent: "space-between",
+        marginStart: 20,
+        marginEnd: 20,
+        marginTop: 20
+    },
+    melhoresAvalTitle:{
+        fontSize:25,
+        fontWeight:700,
     }
+
 
 })
 

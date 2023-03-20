@@ -1,12 +1,21 @@
-import TabNavigator from './src/Navigation/TabNavigator'
-import Home from './src/screens/Home'
+import AppStack from './src/Navigation/AppStack'
+import { NavigationContainer } from '@react-navigation/native';
+import AuthStack from './src/Navigation/AuthStack';
+
+
+
 
 
 
 export default function App() {
-    return (
-        
-       <TabNavigator/>
+ 
+
+  return (
+    <NavigationContainer>
+      {/* <AppStack/> */}
+      <AuthStack />
+    </NavigationContainer>
+
   )
 
 }

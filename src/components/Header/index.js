@@ -6,14 +6,15 @@ import { Feather } from '@expo/vector-icons'
 
 
 
+
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64
-export default function Header(props) {
+export default function Header({navigation, name}) {
 
     return (
         <View style={[styles.container, styles.shadowProp]}>
             <View style={styles.content}>
-                <Text style={styles.username}> {` Olá, ${props.name}`} </Text>
-                <TouchableOpacity style={styles.buttonUser}>
+                <Text style={[styles.username]}> {` Olá, ${name} `} </Text>
+                <TouchableOpacity style={styles.buttonUser} onPress={() => navigation.openDrawer()}>
                     <Feather name='user' size={30} color={'white'} />
                 </TouchableOpacity>
             </View>
@@ -48,9 +49,11 @@ const styles = StyleSheet.create({
         
     },
     username: {
+        
         fontSize: 25,
         fontWeight: 700,
         color: Styles.coloWhite,
+        
         
     },
     buttonUser: {
